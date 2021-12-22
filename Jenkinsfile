@@ -6,7 +6,9 @@ pipeline {
             steps {
                 echo "Building..."
                 cmakeBuild(
-                    installation: "InSearchPath"
+                    installation: "cmake-3.22.1",
+                    buildDir: 'build',
+                    cleanBuild: true
                 )
             }
         }
