@@ -5,6 +5,9 @@ pipeline {
         stage("Build") {
             steps {
                 echo "Building..."
+                cmakeBuild(
+                    installation: "InSearchPath"
+                )
             }
         }
         stage("Test") {
