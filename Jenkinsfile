@@ -8,7 +8,8 @@ pipeline {
                 cmakeBuild(
                     installation: "cmake-3.22.1",
                     buildDir: 'build',
-                    cleanBuild: true
+                    cleanBuild: true,
+                    steps: [[withCmake: true]]
                 )
             }
         }
