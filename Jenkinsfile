@@ -16,6 +16,7 @@ pipeline {
         stage("Test") {
             steps {
                 echo "Testing..."
+                ctest "cmake-3.22.1"
             }
         }
         stage("Deploy") {

@@ -1,6 +1,8 @@
 #include <iostream>
+#include "sudoku.h"
 
 int main(int, char**) {
-    std::cout << "Hello, world!" << std::endl;
+    std::cout << "======== Sudoku Generator ========" << std::endl;
+    Sudoku sudoku;
     return 0;
 }
