@@ -16,7 +16,10 @@ pipeline {
         stage("Test") {
             steps {
                 echo "Testing..."
-                ctest "cmake-3.22.1"
+                ctest(
+                    installation: "cmake-3.22.1",
+                    workingDir: 'build'                
+                )
             }
         }
         stage("Deploy") {
