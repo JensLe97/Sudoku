@@ -22,6 +22,12 @@ pipeline {
                 )
             }
         }
+        stage("Analyse") {
+            steps {
+                sh returnStatus: true, script: 'cppcheck . --enable=all --inconclusive --xml --xml-version=2 --language=c++ --suppressions-list=suppressions.txt 2> cppcheck-result.xml'
+                publishCppcheck allowNoReport: true, ignoreBlankFiles: true, pattern: '**/cppcheck-result.xml'
+            }
+        }
         stage("Deploy") {
             steps {
                 echo "Deploying..."
