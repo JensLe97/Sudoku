@@ -25,8 +25,7 @@ pipeline {
         stage("Analyse") {
             steps {
                 sh returnStatus: true, script: 'cppcheck . --enable=all --inconclusive --xml --xml-version=2 --language=c++ --suppressions-list=suppressions.txt 2> cppcheck.xml'
-                def cppcheck = scanForIssues tool: cppCheck(pattern: 'cppcheck.xml')
-                publishIssues issues: [cppcheck]
+                recordIssues enabledForFailure: true, aggregatingResults: true, tool: cppCheck(pattern: 'cppcheck.xml')
             }
         }
         stage("Deploy") {
