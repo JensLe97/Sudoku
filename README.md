@@ -3,7 +3,7 @@ A Sudoku Generator combined with a Solver using backtracking algorithm in C++.
 
 ## Build the the Docker Image and run the container with Jenkins
 After having installed Docker from the [Docker Website](https://docs.docker.com/get-docker/)
-you can build the container using in the root directory where the Dockerfile is located:
+you can build the image using in the root directory where the Dockerfile is located:
 ```
 docker build -t jenkins:1.0 .
 ```
