@@ -1,10 +1,23 @@
 #include <gtest/gtest.h>
 #include "../sudoku.h"
 
-TEST(SudokuTest, Solve)
+TEST(SudokuTest, SolutionFound)
 {
+  std::vector<std::vector<char>> board;
+
   Sudoku sudoku;
-  EXPECT_EQ(true, sudoku.solve());
+  EXPECT_TRUE(sudoku.solve(board));
+}
+
+TEST(SudokuTest, SolutionMatches)
+{
+  std::vector<std::vector<char>> board;
+  std::vector<std::vector<char>> expected;
+
+  Sudoku sudoku;
+  sudoku.solve(board);
+
+  EXPECT_TRUE(board == expected);
 }
 
 int main(int argc, char** argv)
