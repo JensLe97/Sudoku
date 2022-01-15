@@ -8,7 +8,7 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(Google_Tests test.cpp ${CMAKE_SOURCE_DIR}/sudoku.h ${CMAKE_SOURCE_DIR}/sudoku.cpp)
+add_executable(Google_Tests test.cpp ${CMAKE_SOURCE_DIR}/sudoku.h ${CMAKE_SOURCE_DIR}/sudoku.cpp ${CMAKE_SOURCE_DIR}/util.h ${CMAKE_SOURCE_DIR}/util.cpp)
 target_link_libraries(Google_Tests gtest)
 target_include_directories(Google_Tests PRIVATE ${CMAKE_SOURCE_DIR})
 

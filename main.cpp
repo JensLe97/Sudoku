@@ -1,46 +1,5 @@
-#include <iostream>
 #include "sudoku.h"
-
-void printBoard(const std::vector<std::vector<char>> &board) 
-{
-    for (size_t row = 0; row < 9; row++) 
-    {
-        for (size_t col = 0; col < 9; col++)
-        {
-            if(col == 3 || col == 6)
-                std::cout << "| ";
-            std::cout << board.at(row).at(col) << " ";
-        }
-        std::cout << std::endl; 
-        if(row == 2 || row == 5) 
-            std::cout << "---------------------" << std::endl;
-    }
-}
-
-/**
- * Converts an array of char to a 2D vector (vector of vector of char)
- *
- * @param arrayBoard The reference to the flat array containing 81 values
- * @return A new board as a vector of vectors
- */
-std::vector<std::vector<char>> arrayTo2DVec(const std::array<char, 81> &arrayBoard)
-{
-    std::vector<std::vector<char>> board;
-    board.reserve(9);
-
-    // All cells in the Sudoku board are pushed into the vector by extracting each row
-    for (std::size_t row = 0; row < 9; row++) 
-    {
-        std::vector<char> currentRow;
-        currentRow.reserve(9);
-        for (std::size_t col = 0; col < 9; col++) 
-        {
-            currentRow.push_back(arrayBoard[row * 9 + col]);
-        }
-        board.push_back(currentRow);
-    }
-    return board;
-}
+#include "util.h"
 
 int main(int, char**) 
 {
@@ -64,10 +23,13 @@ int main(int, char**)
                                                         '9', '6', '1', '5', '3', '7', '2', '8', '4', 
                                                         '2', '8', '7', '4', '1', '9', '6', '3', '5', 
                                                         '3', '4', '5', '2', '8', '6', '1', '7', '9'};
+    
     std::vector<std::vector<char>> board = arrayTo2DVec(arrayBoardToSolve);
     std::vector<std::vector<char>> const expected = arrayTo2DVec(arrayBoardSolution);
 
-    std::cout << "======== Sudoku Solver ========" << std::endl;
+    std::cout << "Sudoku has been successfully created..." << std::endl;
+
+    std::cout << "========== Sudoku Solver =========" << std::endl;
 
     std::cout << "Board to solve: " << std::endl;
     printBoard(board);
