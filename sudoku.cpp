@@ -55,7 +55,7 @@ bool Sudoku::solve(std::vector<std::vector<char>> &board) const noexcept
 constexpr std::pair<std::size_t, std::size_t> Sudoku::nextEmptyCell(
     std::vector<std::vector<char>> &board, 
     std::size_t row, 
-    std::size_t col) const noexcept
+    std::size_t col) noexcept
 {   
     while (row != 9)
     {

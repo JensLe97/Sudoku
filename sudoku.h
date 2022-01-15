@@ -66,10 +66,10 @@ private:
      * @param col The column start position
      * @return constexpr std::pair<std::size_t, std::size_t> The row, column in a pair
      */
-    constexpr std::pair<std::size_t, std::size_t> nextEmptyCell(
+    static constexpr std::pair<std::size_t, std::size_t> nextEmptyCell(
         std::vector<std::vector<char>> &board, 
         std::size_t row, 
-        std::size_t col) const noexcept;
+        std::size_t col) noexcept;
 
     /**
      * @brief The actual logic of the backtracking algorithm
